@@ -1,0 +1,325 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API SURGIKA",
+        "description": "Daftar API SURGIKA",
+        "version": "1.0.0",
+        "contact": {
+            "email": "fahmi.rifai@gmail.com"
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    },
+    "security": [{
+        "bearerAuth": []
+    }],
+    "servers": [
+        {
+            "url": "http://localhost:3001",
+            "description": "localhost"
+        },
+        {
+            "url": "http://localhost:3002",
+            "description": "dev"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Authentication",
+            "description": "Authentication"
+        },
+        {
+            "name": "Employee",
+            "description": "Master Employee"
+        },
+        {
+            "name": "Jurusan",
+            "description": "Jurusan"
+        }
+    ],
+    "paths":{
+        "/auth":{
+            "post":{
+                "tags":[
+                    "Authentication"
+                ],
+                "summary": "Post Authentication",
+                "consumes": "application/json",
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type": "object",
+                                "properties":{
+                                    "email":{
+                                        "type": "string",
+                                        "default":"projects.fahmi@gmail.com"
+                                    },
+                                    "password":{
+                                        "type": "string",
+                                        "default":"sa212"
+                                    }
+                                }
+                            }
+                        },
+                        "application/x-www-form-urlencoded":{
+                            "schema":{
+                                "type": "object",
+                                "properties":{
+                                    "email":{
+                                        "type": "string",
+                                        "default":"projects.fahmi@gmail.com"
+                                    },
+                                    "password":{
+                                        "type": "string",
+                                        "default":"sa212"
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                },
+                "responses":{
+                    "201":{
+                        "description": "sukses"
+                    }
+                }
+            }
+        },
+        "/msemployee":{
+            "get":{
+                "tags":[
+                    "Employee"
+                ],
+                "summary": "Get All Master Employee",
+                "description": "",
+                "responses": {
+                    "200":  {
+                        "description": "Success"
+                    },
+                    "401":  {
+                        "description": "Unauthorized. Invalid Token"
+                    }
+                }
+            },
+            "post":{
+                "tags":[
+                    "Employee"
+                ],
+                "summary": "Post Employee",
+                "consumes": "multipart/form-data",
+                "requestBody":{
+                    "content":{
+                        "multipart/form-data":{
+                            "schema":{
+                                "type": "object",
+                                "properties":{
+                                    "HOCode":{
+                                        "type": "string",
+                                        "default":"BHI"
+                                    },
+                                    "HOName":{
+                                        "type": "string",
+                                        "default":"BETHSAIDA HOSPITAL INTERNATIONAL"
+                                    },
+                                    "BuildingCode":{
+                                        "type": "string",
+                                        "default":"BH01"
+                                    },
+                                    "BuildingName":{
+                                        "type": "string",
+                                        "default":"BETHSAIDA HOSPITAL INTERNATIONAL"
+                                    },
+                                    "EmployeeCode":{
+                                        "type": "string",
+                                        "default":"E01"
+                                    },
+                                    "EmployeeName":{
+                                        "type": "string",
+                                        "default":"Fahmi Rifa'i"
+                                    },
+                                    "Password":{
+                                        "type": "string",
+                                        "default":"123"
+                                    },
+                                    "DOB":{
+                                        "type": "string",
+                                        "default":"1991-02-02"
+                                    },
+                                    "TempatLahir":{
+                                        "type": "string",
+                                        "default":"Tangerang"
+                                    },
+                                    "MaritalStatus":{
+                                        "type": "string",
+                                        "default":"Married"
+                                    },
+                                    "PositionCode":{
+                                        "type": "string",
+                                        "default":"P01"
+                                    },
+                                    "PositionName":{
+                                        "type": "string",
+                                        "default":"AYAH"
+                                    },
+                                    "foto":{
+                                        "type": "string",
+                                        "format": "binary"
+                                    }    
+
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "201":{
+                        "description": "sukses"
+                    }
+                }
+            }
+        },
+        "/msemployee/{nim}":{
+            "delete":{
+                "tags":[
+                    "Employee"
+                ],
+                "summary":"Delete Employee",
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"nim",
+                        "schema":{
+                            "type":"integer"
+                        },
+                        "description":"Employee"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"sukses"
+                    }
+                }
+            }
+        },
+        "/mahasiswa/{nim}":{
+            "get":{
+                "tags":[
+                    "Mahasiswa"
+                ],
+                "summary":"Get One Mahasiswa",
+                "description":"",
+                "parameters":[
+                    {
+                        "in": "path",
+                        "name": "nim",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "NIM Mahasiswa"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "sukses"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Mahasiswa"
+                ],
+                "summary": "Update Mahasiswa",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "nim",
+                        "schema":{
+                            "type": "integer"
+                        },
+                        "description": "NIM Mahasiswa"
+                    }
+                ],
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "nama":{
+                                        "type":"string"
+                                    },
+                                    "kd_jurusan":{
+                                        "type":"string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description":"sukses"
+                    }
+                }
+            },
+            "delete":{
+                "tags":[
+                    "Mahasiswa"
+                ],
+                "summary":"Delete Mahasiswa",
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"nim",
+                        "schema":{
+                            "type":"integer"
+                        },
+                        "description":"Mahasiswa"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"sukses"
+                    }
+                }
+            }
+        },
+        "/mahasiswa/search?keyword=":{
+            "get":{
+                "tags":[
+                    "Mahasiswa"
+                ],
+                "summary":"Search Mahasiswa",
+                "description":"",
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "in":"query",
+                        "name":"keyword",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"NIM / Nama Mahasiswa"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"sukses"
+                    }
+                }
+            }
+        }
+  
+    }
+}
