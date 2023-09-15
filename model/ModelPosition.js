@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const db = require('../config/database/mysql');
+const db = require('../config/database/dbsampleseq');
 
 var msposition = db.define('msposition',
 {

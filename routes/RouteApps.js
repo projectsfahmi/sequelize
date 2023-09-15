@@ -42,8 +42,9 @@ const authenticateJWT = (req, res, next) => {
 /**END AUTHENTICATION */
 
 
+router.post('/auth', controller.auth.post);
 
-router.get('/mspasien', controller.mspasien.getAll);
+
 
 router.get('/msemployee',authenticateJWT, controller.msemployee.getAll);
 router.get('/msemployee/query',authenticateJWT, controller.msemployee.getAllQuery);
@@ -54,9 +55,11 @@ router.post('/msemployee', upload.single('Photo'), controller.msemployee.post);
 router.put('/msemployee/:EmployeeCode', controller.msemployee.put);
 router.delete('/msemployee/:EmployeeCode', controller.msemployee.delete);
 
+router.get('/mspasien', controller.mspasien.getAll);
+
 router.get('/axios', controller.axios.getAll);
 router.post('/axios', controller.axios.post);
 
-router.post('/auth', controller.auth.post);
+
 
 module.exports = router;

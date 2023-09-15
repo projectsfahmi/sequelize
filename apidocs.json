@@ -40,8 +40,8 @@
             "description": "Master Employee"
         },
         {
-            "name": "Jurusan",
-            "description": "Jurusan"
+            "name": "Pasien",
+            "description": "Master Pasien"
         }
     ],
     "paths":{
@@ -94,6 +94,7 @@
                 }
             }
         },
+
         "/msemployee":{
             "get":{
                 "tags":[
@@ -144,6 +145,149 @@
                                     },
                                     "EmployeeName":{
                                         "type": "string",
+                                        "default":"Fahmi Rifai"
+                                    },
+                                    "Password":{
+                                        "type": "string",
+                                        "default":"123"
+                                    },
+                                    "DOB":{
+                                        "type": "string",
+                                        "default":"1991-02-02"
+                                    },
+                                    "TempatLahir":{
+                                        "type": "string",
+                                        "default":"Tangerang"
+                                    },
+                                    "MaritalStatus":{
+                                        "type": "string",
+                                        "default":"Married"
+                                    },
+                                    "PositionCode":{
+                                        "type": "string",
+                                        "default":"P01"
+                                    },
+                                    "PositionName":{
+                                        "type": "string",
+                                        "default":"AYAH"
+                                    },
+                                    "Photo":{
+                                        "type": "string",
+                                        "format": "binary"
+                                    }    
+
+                                }
+                            }
+                        },
+                        "application/json":{
+                            "schema":{
+                                "in":"body",
+                                "type": "array",
+                                "items":{
+                                    "type": "object",
+                                    "properties":{
+                                        "HOCode":{
+                                            "type": "string",
+                                            "default":"BHI"
+                                        },
+                                        "HOName":{
+                                            "type": "string",
+                                            "default":"BETHSAIDA HOSPITAL INTERNATIONAL"
+                                        },
+                                        "BuildingCode":{
+                                            "type": "string",
+                                            "default":"BH01"
+                                        },
+                                        "BuildingName":{
+                                            "type": "string",
+                                            "default":"BETHSAIDA HOSPITAL INTERNATIONAL"
+                                        },
+                                        "EmployeeCode":{
+                                            "type": "string",
+                                            "default":"E01"
+                                        },
+                                        "EmployeeName":{
+                                            "type": "string",
+                                            "default":"Fahmi Rifai"
+                                        },
+                                        "Password":{
+                                            "type": "string",
+                                            "default":"123"
+                                        },
+                                        "DOB":{
+                                            "type": "string",
+                                            "default":"1991-02-02"
+                                        },
+                                        "TempatLahir":{
+                                            "type": "string",
+                                            "default":"Tangerang"
+                                        },
+                                        "MaritalStatus":{
+                                            "type": "string",
+                                            "default":"Married"
+                                        },
+                                        "PositionCode":{
+                                            "type": "string",
+                                            "default":"P01"
+                                        },
+                                        "PositionName":{
+                                            "type": "string",
+                                            "default":"AYAH"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "201":{
+                        "description": "sukses"
+                    },
+                    "404":{
+                        "description": "Data Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Update Employee",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "nim",
+                        "schema":{
+                            "type": "string"
+                        },
+                        "description": "Employee Code"
+                    }
+                ],
+                "requestBody":{
+                    "content":{
+                        "multipart/form-data":{
+                            "schema":{
+                                "type": "object",
+                                "properties":{
+                                    "HOCode":{
+                                        "type": "string",
+                                        "default":"BHI"
+                                    },
+                                    "HOName":{
+                                        "type": "string",
+                                        "default":"BETHSAIDA HOSPITAL INTERNATIONAL"
+                                    },
+                                    "BuildingCode":{
+                                        "type": "string",
+                                        "default":"BH01"
+                                    },
+                                    "BuildingName":{
+                                        "type": "string",
+                                        "default":"BETHSAIDA HOSPITAL INTERNATIONAL"
+                                    },
+                                    "EmployeeName":{
+                                        "type": "string",
                                         "default":"Fahmi Rifa'i"
                                     },
                                     "Password":{
@@ -177,17 +321,90 @@
 
                                 }
                             }
+                        },
+                        "application/json":{
+                            "schema":{
+                                "type": "object",
+                                "properties":{
+                                    "HOCode":{
+                                        "type": "string",
+                                        "default":"BHI"
+                                    },
+                                    "HOName":{
+                                        "type": "string",
+                                        "default":"BETHSAIDA HOSPITAL INTERNATIONAL"
+                                    },
+                                    "BuildingCode":{
+                                        "type": "string",
+                                        "default":"BH01"
+                                    },
+                                    "BuildingName":{
+                                        "type": "string",
+                                        "default":"BETHSAIDA HOSPITAL INTERNATIONAL"
+                                    },
+                                    "EmployeeName":{
+                                        "type": "string",
+                                        "default":"Fahmi Rifa'i"
+                                    },
+                                    "Password":{
+                                        "type": "string",
+                                        "default":"123"
+                                    },
+                                    "DOB":{
+                                        "type": "string",
+                                        "default":"1991-02-02"
+                                    },
+                                    "TempatLahir":{
+                                        "type": "string",
+                                        "default":"Tangerang"
+                                    },
+                                    "MaritalStatus":{
+                                        "type": "string",
+                                        "default":"Married"
+                                    },
+                                    "PositionCode":{
+                                        "type": "string",
+                                        "default":"P01"
+                                    },
+                                    "PositionName":{
+                                        "type": "string",
+                                        "default":"AYAH"
+                                    } 
+                                }
+                            }
                         }
                     }
                 },
                 "responses":{
-                    "201":{
-                        "description": "sukses"
+                    "200":{
+                        "description":"sukses"
                     }
                 }
             }
         },
-        "/msemployee/{nim}":{
+        "/msemployee/{EmployeeCode}":{
+            "get":{
+                "tags":[
+                    "Employee"
+                ],
+                "summary":"Find Employee",
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"EmployeeCode",
+                        "schema":{
+                            "type":"string",
+                            "default":"E01"
+                        },
+                        "description":"Input Employee Code"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"sukses"
+                    }
+                }
+            },
             "delete":{
                 "tags":[
                     "Employee"
@@ -196,11 +413,12 @@
                 "parameters":[
                     {
                         "in":"path",
-                        "name":"nim",
+                        "name":"EmployeeCode",
                         "schema":{
-                            "type":"integer"
+                            "type":"string",
+                            "default":"E01"
                         },
-                        "description":"Employee"
+                        "description":"Input Dengan Kode Karyawan"
                     }
                 ],
                 "responses":{
@@ -210,6 +428,35 @@
                 }
             }
         },
+        "/msemployee/search?keyword=":{
+            "get":{
+                "tags":[
+                    "Employee"
+                ],
+                "summary":"Search Employee",
+                "description":"",
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "in":"query",
+                        "name":"keyword",
+                        "schema":{
+                            "type":"string"
+                        },
+                        "description":"EmployeeCode / Employee Name"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"sukses"
+                    }
+                }
+            }
+        },
+
+
         "/mahasiswa/{nim}":{
             "get":{
                 "tags":[
